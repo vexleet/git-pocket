@@ -94,6 +94,24 @@ const run = async () => {
                 }
 
                 break;
+            case 'Create new branch':
+                const branchName = await inquirer.askBranchName();
+
+                const doneNewBranch = await repo.createNewBranch(branchName['branch-name']);
+
+                if (doneNewBranch) {
+                    console.log(chalk.green('Created new branch!'));
+                }
+                break;
+            case "Switch branch":
+                const switchBranchName = await inquirer.askSwitchBranch();
+
+                const doneSwitchBranch = await repo.changeBranch(switchBranchName['switch-branch']);
+
+                if (doneSwitchBranch) {
+                    console.log(chalk.green(`Successfully switched branch to ${switchBranchName['switch-branch']}.`));
+                }
+                break;
             case 'Exit':
                 process.exit();
                 break;
