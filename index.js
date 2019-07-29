@@ -72,7 +72,7 @@ const run = async () => {
                     }
 
                     if (currentFile.index !== ' ' && currentFile.working_dir === ' ') {
-                        console.log(chalk.green(currentFile.path));
+                        console.log(chalk.green(`${currentFile.path} - Ready to commit`));
                     }
                 }
 
