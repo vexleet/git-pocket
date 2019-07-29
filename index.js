@@ -79,6 +79,21 @@ const run = async () => {
                 console.log('\n');
 
                 break;
+            case 'Commit logs':
+                const logs = await repo.showCommitLogs();
+
+                for (let i = 0; i < logs.length; i++) {
+                    const currentLog = logs[i];
+
+                    console.log(`commit ${chalk.yellow(currentLog.hash)} ${currentLog.refs}`);
+                    console.log(`Author: ${chalk.green(currentLog.author_name)}`);
+                    console.log(`Date: ${currentLog.date}`);
+                    console.log(`Commit message: ${currentLog.message}`);
+
+                    console.log('\n');
+                }
+
+                break;
             case 'Exit':
                 process.exit();
                 break;
