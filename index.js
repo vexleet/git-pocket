@@ -55,6 +55,9 @@ const run = async () => {
                 if (doneCommitAndPush) {
                     console.log(chalk.green('All done!'));
                 }
+                else {
+                    console.log(chalk.red('There is nothing to commit.'));
+                }
                 break;
             case 'Status':
                 const statusOfRepo = await repo.getStatusOfRepo();
