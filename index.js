@@ -64,6 +64,11 @@ const run = async () => {
 
                 console.log(chalk.green(`Branch: ${statusOfRepo.current}`));
 
+                if (!statusOfRepo.files.length) {
+                    console.log(chalk.green("There is nothing to commit. \n"));
+                    break;
+                }
+
                 for (let i = 0; i < statusOfRepo.files.length; i++) {
                     const currentFile = statusOfRepo.files[i];
 
